@@ -26,10 +26,10 @@ describe('initial one user in db', () => {
     }
 
     await api
-    .post('/api/users')
-    .send(newUser)
-    .expect(200)
-    .expect('Content-Type', /application\/json/)
+      .post('/api/users')
+      .send(newUser)
+      .expect(200)
+      .expect('Content-Type', /application\/json/)
 
     users = await User.find({})
     const end = users.map(u => u.toJSON())
