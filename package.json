@@ -5,14 +5,29 @@
   "author": "lee",
   "license": "MIT",
   "scripts": {
-    "start": "node",
-    "dev": "nodemon"
+    "start": "cross-env NODE_ENV=production node",
+    "dev": "cross-env NODE_ENV=development nodemon",
+    "lint": "eslint . --fix",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand --detectOpenHandles"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "mongoose": "^5.10.9",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "cross-env": "^7.0.2",
+    "eslint": "7.2.0",
+    "eslint-config-airbnb": "18.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jsx-a11y": "^6.3.0",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "4.0.0",
+    "jest": "^26.6.0",
+    "nodemon": "^2.0.6",
+    "supertest": "^5.0.0"
   }
 }
