@@ -16,10 +16,14 @@ const errorHandler = (error, req, res, next) => {
   logger.error(error.message)
   if (error.name === 'CastError' && error.kind === 'ObjectId') {
     return res.status(400).send({ error: 'wrong formatted id' })
-  }
-  if (error.name === 'ValidationError') {
+  } else if (error.name === 'ValidationError') {
     return res.status(400).send({ error: error.message })
+  } else if (error.name === 'JsonWebTokenError') {
+    return res.status(401).send({ error: 'invalid token'})
   }
+
+  logger.error(error.message)
+
   next(error)
 }
 

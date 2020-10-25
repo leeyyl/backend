@@ -6,6 +6,7 @@ const cors = require('cors')
 const logger = require('./utils/logger')
 const notes = require('./controllers/notes')
 const users = require('./controllers/users')
+const login = require('./controllers/login')
 const middle = require('./utils/middleware')
 const mongoose = require('mongoose')
 
@@ -30,6 +31,7 @@ app.use(middle.requestLogger)
 
 app.use('/api/notes', notes)
 app.use('/api/users', users)
+app.use('/api/login', login)
 
 app.use(middle.unknownEndpoint)
 app.use(middle.errorHandler)
